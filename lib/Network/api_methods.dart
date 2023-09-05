@@ -1,7 +1,9 @@
+import 'package:geolocator/geolocator.dart';
+
 abstract class ApiMethods{
 
-  Future<void> setApiToken(String token);
+  Future<void> getApiToken({required String plateNumber, required String deviceName} );
 
-  Future<void> postResponseApi();
+  Future<void> postResponseApi(Position position);
 
 }

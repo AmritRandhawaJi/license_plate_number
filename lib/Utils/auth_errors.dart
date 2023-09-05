@@ -2,10 +2,10 @@ import 'package:another_flushbar/flushbar.dart';
 import 'package:another_flushbar/flushbar_route.dart';
 import 'package:flutter/material.dart';
 
-class AuthErrors {
-  static void flushBarAuth(String message, BuildContext context) {
+class Messege {
+  static void flushBarAuth(String message, BuildContext context,Icon icon) {
     showFlushbar(context: context, flushbar: Flushbar(
-      icon: const Icon(Icons.warning_amber,color: Colors.red),
+      icon: icon,
       message: message,
       title: "Server",
       margin: EdgeInsets.all(MediaQuery.of(context).size.width/25),

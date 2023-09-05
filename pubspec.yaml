@@ -39,10 +39,16 @@ dependencies:
   connectivity_plus: ^4.0.2
   another_flushbar: ^1.12.30
   http: ^1.1.0
-  geolocator: ^9.0.2
-  shared_preferences: ^2.2.1
-  background_fetch: ^1.2.1
+  geolocator: ^10.0.0
   app_settings: ^5.0.0
+  flutter_background_service: ^5.0.1
+  flutter_local_notifications: ^15.1.1
+  shared_preferences: ^2.2.1
+  device_info_plus: ^9.0.3
+  firebase_core: ^2.14.0
+  cloud_firestore: ^4.8.2
+  permission_handler: ^10.4.3
+
 
 dev_dependencies:
   flutter_test:
