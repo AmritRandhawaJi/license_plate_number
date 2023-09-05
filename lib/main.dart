@@ -15,6 +15,7 @@ import 'package:permission_handler/permission_handler.dart';
 import 'Utils/auth_errors.dart';
 import 'firebase_options.dart';
 
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(

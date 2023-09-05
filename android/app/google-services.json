@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "922108709632",
+    "project_id": "officialsportistan",
+    "storage_bucket": "officialsportistan.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:922108709632:android:44af68687280e02e0a41e5",
+        "android_client_info": {
+          "package_name": "com.sportslovez.sportistan_partners"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "922108709632-ggqb28rgcseqaceml0jeckvvldnvkfnp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhvRgweeCtFsO8n7VDIl8VnTuVAnBxuno"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "922108709632-ggqb28rgcseqaceml0jeckvvldnvkfnp.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "922108709632-cshlr20nm3guvmniksjb0r0361cocml4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.sportistan.sportistanPartners"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:922108709632:android:57d6b336e11f86b30a41e5",
+        "android_client_info": {
+          "package_name": "com.techcarrel.license_plate_number"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "922108709632-ggqb28rgcseqaceml0jeckvvldnvkfnp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhvRgweeCtFsO8n7VDIl8VnTuVAnBxuno"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "922108709632-ggqb28rgcseqaceml0jeckvvldnvkfnp.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "922108709632-cshlr20nm3guvmniksjb0r0361cocml4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.sportistan.sportistanPartners"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
