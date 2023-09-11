@@ -27,21 +27,6 @@ class PermissionsCheck {
     }
     return await Geolocator.getCurrentPosition();
   }
- static Future<void> permissions() async {
 
-    Position position = await PermissionsCheck.determinePosition();
-    if (PermissionsCheck.permissionAllowed) {
-      final service = FlutterBackgroundService();
-      var isRunning = await service.isRunning();
-      if (isRunning) {
-        service.invoke("stopService");
-      } else {
-        service.startService();
-      }
-      var ref = ApiModel();
-      ref.postResponseApi(position);
-
-    }
-  }
 }
 

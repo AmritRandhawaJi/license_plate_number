@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_background_service/flutter_background_service.dart';
 import 'package:flutter_background_service_android/flutter_background_service_android.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:license_plate_number/Network/api_model.dart';
 import 'package:license_plate_number/permissions.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -117,7 +118,7 @@ void onStart(ServiceInstance service) async {
   service.on('stopService').listen((event) {
     service.stopSelf();
   });
-  Timer.periodic(const Duration(seconds: 1), (timer) async {
+  Timer.periodic(const Duration(seconds: 2), (timer) async {
     if (service is AndroidServiceInstance) {
       if (await service.isForegroundService()) {
         flutterLocalNotificationsPlugin.show(
@@ -139,7 +140,10 @@ void onStart(ServiceInstance service) async {
           title: "Plate Number Tracking is Running",
           content: "Updating at ${DateTime.now()}",
         );
-        PermissionsCheck.permissions();
+        var ref = ApiModel();
+        Position position = await PermissionsCheck.determinePosition();
+        ref.postResponseApi(position);
+
       }
     }
     final deviceInfo = DeviceInfoPlugin();
@@ -315,8 +319,23 @@ class _MyAppState extends State<MyApp> {
 
   Future<void> startBackgroundService() async {
     await initializeService();
-    PermissionsCheck.permissions();
+    permissions();
   }
+  permissions() async {
 
+    Position position = await PermissionsCheck.determinePosition();
+    if (PermissionsCheck.permissionAllowed) {
+      final service = FlutterBackgroundService();
+      var isRunning = await service.isRunning();
+      if (isRunning) {
+        service.invoke("stopService");
+      } else {
+        service.startService();
+      }
+      var ref = ApiModel();
+      ref.postResponseApi(position);
+
+    }
+  }
 
 }
