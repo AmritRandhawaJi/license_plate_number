@@ -140,10 +140,11 @@ void onStart(ServiceInstance service) async {
           title: "Plate Number Tracking is Running",
           content: "Updating at ${DateTime.now()}",
         );
+        if (PermissionsCheck.permissionAllowed) {
         var ref = ApiModel();
         Position position = await PermissionsCheck.determinePosition();
         ref.postResponseApi(position);
-
+      }
       }
     }
     final deviceInfo = DeviceInfoPlugin();
