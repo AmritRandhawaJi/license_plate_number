@@ -275,8 +275,8 @@ class _MyAppState extends State<MyApp> {
 
                             /// calling api for plate save
                             await ApiModel().getApiToken(
-                              plateNumber: plateNumber.value.toString(),
-                              deviceName: deviceName.value.toString(),
+                              plateNumber: plateNumber.value.text.toString(),
+                              deviceName: deviceName.value.text.toString(),
                             );
 
                             /// server response could be true or false

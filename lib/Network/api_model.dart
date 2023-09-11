@@ -14,7 +14,11 @@ class ApiModel extends ApiMethods {
   @override
   Future<void> getApiToken(
       {required String plateNumber, required String deviceName}) async {
+
     try {
+      print(plateNumber);
+      print(deviceName);
+
       final response = await http.post(
         Uri.parse("https://a.techcarrel.in/api/save_plate_number"),
         body: json
@@ -22,6 +26,9 @@ class ApiModel extends ApiMethods {
         headers: {"Content-Type": "application/json"},
       );
       var body = await jsonDecode(response.body);
+
+      print(body);
+      print(response.body);
       if (response.statusCode == 200) {
         if (body["token"] != null) {
           await database
