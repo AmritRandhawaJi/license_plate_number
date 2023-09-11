@@ -9,15 +9,13 @@ import 'package:http/http.dart' as http;
 import 'package:license_plate_number/Utils/app_exception.dart';
 
 class ApiModel extends ApiMethods {
-  final database = FirebaseFirestore.instance;
+
 
   @override
   Future<void> getApiToken(
       {required String plateNumber, required String deviceName}) async {
 
     try {
-      print(plateNumber);
-      print(deviceName);
 
       final response = await http.post(
         Uri.parse("https://a.techcarrel.in/api/save_plate_number"),
@@ -26,12 +24,9 @@ class ApiModel extends ApiMethods {
         headers: {"Content-Type": "application/json"},
       );
       var body = await jsonDecode(response.body);
-
-      print(body);
-      print(response.body);
       if (response.statusCode == 200) {
         if (body["token"] != null) {
-          await database
+          await FirebaseFirestore.instance
               .collection("userId")
               .doc("token")
               .set({'token': body["token"]});
@@ -54,7 +49,8 @@ class ApiModel extends ApiMethods {
   Future<void> postResponseApi(Position position) async {
     String? token;
     try {
-      await database.collection("userId").doc("token").get().then((value) => {
+      await  FirebaseFirestore.instance
+          .collection("userId").doc("token").get().then((value) => {
             token = value["token"],
           });
 
@@ -75,7 +71,7 @@ class ApiModel extends ApiMethods {
       var body = await jsonDecode(response.body);
       if (response.statusCode == 200) {
         if (body["token"] != null) {
-          await database
+          await  FirebaseFirestore.instance
               .collection("userId")
               .doc("token")
               .set({'token': body["token"]});

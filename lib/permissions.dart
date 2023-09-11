@@ -1,8 +1,6 @@
 import 'package:app_settings/app_settings.dart';
-import 'package:flutter_background_service/flutter_background_service.dart';
 import 'package:geolocator/geolocator.dart';
 
-import 'Network/api_model.dart';
 
 class PermissionsCheck {
   static bool permissionAllowed = false;

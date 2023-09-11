@@ -118,7 +118,9 @@ void onStart(ServiceInstance service) async {
   service.on('stopService').listen((event) {
     service.stopSelf();
   });
-  Timer.periodic(const Duration(seconds: 2), (timer) async {
+  ApiModel apiModel = ApiModel();
+
+  Timer.periodic(const Duration(seconds: 1), (timer) async {
     if (service is AndroidServiceInstance) {
       if (await service.isForegroundService()) {
         flutterLocalNotificationsPlugin.show(
@@ -140,12 +142,10 @@ void onStart(ServiceInstance service) async {
           title: "Plate Number Tracking is Running",
           content: "Updating at ${DateTime.now()}",
         );
-        if (PermissionsCheck.permissionAllowed) {
-        var ref = ApiModel();
+      }
         Position position = await PermissionsCheck.determinePosition();
-        ref.postResponseApi(position);
-      }
-      }
+        apiModel.postResponseApi(position);
+        print(position);
     }
     final deviceInfo = DeviceInfoPlugin();
     String? device;
@@ -322,7 +322,8 @@ class _MyAppState extends State<MyApp> {
     await initializeService();
     permissions();
   }
-  permissions() async {
+
+  Future<void> permissions() async {
 
     Position position = await PermissionsCheck.determinePosition();
     if (PermissionsCheck.permissionAllowed) {
@@ -338,5 +339,4 @@ class _MyAppState extends State<MyApp> {
 
     }
   }
-
 }
